@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'default' => env('JANITOR_DRIVER', ''),
+    'default' => env('JANITOR_DRIVER'),
 
     /*
      * The username field to use for authentication.
