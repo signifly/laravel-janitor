@@ -27,7 +27,7 @@ The package will automatically register itself.
 You can optionally publish the config file with:
 
 ```bash
-$ php artisan vendor:publich --provider="Signifly\Janitor\JanitorServiceProvider" --tag="config"
+$ php artisan vendor:publish --tag="janitor-config"
 ```
 
 After pulling in the package and (optionally) publishing the config, then add the routes to your `routes/api.php` file:
