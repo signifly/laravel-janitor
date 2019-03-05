@@ -37,6 +37,7 @@ class Janitor extends Facade
 
         $defaultOptions = [
             'namespace' => '\Signifly\Janitor\Http\Controllers',
+            'as' => 'janitor.',
         ];
 
         $options = array_merge($defaultOptions, $options);

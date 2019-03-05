@@ -26,19 +26,26 @@ class RouteRegistrar
 
     public function forAuthentication()
     {
-        $this->router->post('/login', 'AuthController@login')
-            ->name('janitor.login');
+        $this->router->post('login', 'AuthController@login')
+            ->name('login');
 
-        $this->router->post('/login/refresh', 'AuthController@refresh')
-            ->name('janitor.refresh');
+        $this->router->post('login/refresh', 'AuthController@refresh')
+            ->name('refresh');
 
         $this->router->group(['middleware' => ['auth:api']], function ($router) {
-            $router->post('/logout', 'AuthController@logout')
-                ->name('janitor.logout');
+            $router->post('logout', 'AuthController@logout')
+                ->name('logout');
         });
     }
 
     public function forPasswordReset()
     {
+        $this->router->group(['middleware' => ['auth:api']], function ($router) {
+            $router->post('password/email', 'ResetPasswordController@sendResetLinkEmail')
+                ->name('password.email');
+
+            $router->post('password/reset', 'ResetPasswordController@reset')
+                ->name('password.reset');
+        });
     }
 }
