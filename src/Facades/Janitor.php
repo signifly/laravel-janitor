@@ -17,7 +17,7 @@ class Janitor extends Facade
      *
      * @return string
      */
-    protected function getFacadeAccessor()
+    protected static function getFacadeAccessor()
     {
         return Factory::class;
     }
