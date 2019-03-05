@@ -1,6 +1,6 @@
 <?php
 
-namespace Signifly\Janitor\Test;
+namespace Signifly\Janitor\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
