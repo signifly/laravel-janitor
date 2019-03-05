@@ -4,9 +4,10 @@ namespace Signifly\Janitor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
 use Signifly\Janitor\Contracts\Factory;
 
-class AuthController
+class AuthController extends Controller
 {
     protected $proxy;
 
@@ -17,8 +18,15 @@ class AuthController
 
     public function login(Request $request)
     {
+        $usernameField = config('janitor.username_field');
+
+        $request->validate([
+            $username_field => 'required',
+            'password' => 'required',
+        ]);
+
         $data = $this->proxy->attemptLogin(
-            $request->input(config('janitor.username_field')),
+            $request->input($usernameField),
             $request->input('password')
         );
 
