@@ -13,6 +13,7 @@ class InvalidCredentialsException extends HttpException
     {
         $exception = new static(422, trans('auth.failed'));
         $exception->username = $username;
+
         return $exception;
     }
 
