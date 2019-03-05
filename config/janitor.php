@@ -15,7 +15,7 @@ return [
     'default' => env('JANITOR_DRIVER', ''),
 
     /*
-     * The username field to user for authentication.
+     * The username field to use for authentication.
      */
     'username_field' => 'email',
 
