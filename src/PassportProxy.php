@@ -60,7 +60,7 @@ class PassportProxy extends AbstractProxy
         $refreshToken = DB::table('oauth_refresh_tokens')
             ->where('access_token_id', $accessToken->id)
             ->update([
-                'revoked' => true
+                'revoked' => true,
             ]);
 
         $accessToken->revoke();
