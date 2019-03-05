@@ -4,8 +4,9 @@ namespace Signifly\Janitor;
 
 use InvalidArgumentException;
 use Illuminate\Support\Manager;
+use Signifly\Janitor\Contracts\Factory;
 
-class JanitorManager extends Manager
+class JanitorManager extends Manager implements Factory
 {
     /**
      * Create an instance of the specified driver.
