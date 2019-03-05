@@ -14,6 +14,17 @@ class JanitorServiceProvider extends ServiceProvider
      */
     protected $defer = true;
 
+    public function boot()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/janitor.php' => config_path('janitor.php'),
+            ], 'janitor-config');
+        }
+
+        $this->mergeConfigFrom(__DIR__.'/../config/janitor.php', 'janitor');
+    }
+
     /**
      * Register the service provider.
      *
