@@ -22,7 +22,7 @@
         "laravel/passport": "^7.0",
         "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
         "phpunit/phpunit": "^6.0|^7.0|^8.0",
-        "tymon/jwt-auth": "^1.0"
+        "tymon/jwt-auth": "1.0.*@beta"
     },
     "autoload": {
         "psr-4": {
@@ -40,8 +40,6 @@
     "config": {
         "sort-packages": true
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
