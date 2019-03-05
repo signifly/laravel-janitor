@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/laravel-janitor.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-janitor)
 [![Build Status](https://img.shields.io/travis/signifly/laravel-janitor/master.svg?style=flat-square)](https://travis-ci.org/signifly/laravel-janitor)
-[![StyleCI](https://styleci.io/repos/117567334/shield?branch=master)](https://styleci.io/repos/117567334)
+[![StyleCI](https://styleci.io/repos/173741214/shield?branch=master)](https://styleci.io/repos/173741214)
 [![Quality Score](https://img.shields.io/scrutinizer/g/signifly/laravel-janitor.svg?style=flat-square)](https://scrutinizer-ci.com/g/signifly/laravel-janitor)
 [![Total Downloads](https://img.shields.io/packagist/dt/signifly/laravel-janitor.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-janitor)
 
