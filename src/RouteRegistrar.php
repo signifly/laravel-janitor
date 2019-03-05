@@ -40,12 +40,10 @@ class RouteRegistrar
 
     public function forPasswordReset()
     {
-        $this->router->group(['middleware' => ['auth:api']], function ($router) {
-            $router->post('password/email', 'ResetPasswordController@sendResetLinkEmail')
-                ->name('password.email');
+        $this->router->post('password/email', 'ResetPasswordController@sendResetLinkEmail')
+            ->name('password.email');
 
-            $router->post('password/reset', 'ResetPasswordController@reset')
-                ->name('password.reset');
-        });
+        $this->router->post('password/reset', 'ResetPasswordController@reset')
+            ->name('password.reset');
     }
 }
