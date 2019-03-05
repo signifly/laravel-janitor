@@ -15,7 +15,7 @@ abstract class AbstractProxy implements Proxy
     }
 
     /**
-     * Get the guard
+     * Get the guard.
      *
      * @return string
      */
@@ -32,6 +32,7 @@ abstract class AbstractProxy implements Proxy
     protected function getUserInstance()
     {
         $userClass = config('auth.providers.users.model');
+
         return new $userClass;
     }
 

@@ -40,6 +40,5 @@ class RouteRegistrar
 
     public function forPasswordReset()
     {
-
     }
 }

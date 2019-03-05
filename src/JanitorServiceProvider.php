@@ -2,8 +2,8 @@
 
 namespace Signifly\Janitor;
 
-use Signifly\Janitor\Contracts\Factory;
 use Illuminate\Support\ServiceProvider;
+use Signifly\Janitor\Contracts\Factory;
 
 class JanitorServiceProvider extends ServiceProvider
 {
