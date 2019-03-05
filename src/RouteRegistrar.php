@@ -32,10 +32,10 @@ class RouteRegistrar
         $this->router->post('/login/refresh', 'AuthController@refresh')
             ->name('janitor.refresh');
 
-        $this->router->group(['middleware' => ['auth'], function ($router) {
+        $this->router->group(['middleware' => ['auth:api']], function ($router) {
             $router->post('/logout', 'AuthController@logout')
                 ->name('janitor.logout');
-        }]);
+        });
     }
 
     public function forPasswordReset()
