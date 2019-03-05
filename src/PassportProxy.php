@@ -74,7 +74,7 @@ class PassportProxy extends AbstractProxy
             'grant_type' => $grantType,
         ]);
 
-        $client = new HttpClient();
+        $client = new HttpClient(['http_errors' => false]);
         $response = $client->post($this->config['oauth_token_url'], [
             'form_params' => $data,
         ]);
