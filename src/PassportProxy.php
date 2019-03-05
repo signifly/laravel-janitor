@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client as HttpClient;
+use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;
 use Signifly\Janitor\Exceptions\InvalidCredentialsException;
 use Signifly\Janitor\Exceptions\InvalidClientCredentialsException;
