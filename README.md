@@ -8,12 +8,10 @@
 
 The `signifly/laravel-janitor` package allows you to easily add a login proxy to your Laravel API.
 
-Below is a small example of how to use it.
-
-TO DO
-
 ## Documentation
-Until further documentation is provided, please have a look at the tests.
+To get started you have to either install `laravel/passport` or `tymon/jwt-auth`. Please refer to their documentation for how to configure those packages.
+
+*NOTE: The current support for `tymon/jwt-auth` is limited to `^1.0`.*
 
 ## Installation
 
@@ -24,6 +22,28 @@ $ composer require signifly/laravel-janitor
 ```
 
 The package will automatically register itself.
+
+
+You can optionally publish the config file with:
+
+```bash
+$ php artisan vendor:publich --provider="Signifly\Janitor\JanitorServiceProvider" --tag="config"
+```
+
+After pulling in the package and (optionally) publishing the config, then add the routes to your `routes/api.php` file:
+
+```php
+Janitor::routes();
+```
+
+It will by default add routes for the following:
+- login by username and password (/login)
+- refresh current user access token (/login/refresh)
+- log the user out (/logout)
+
+Finally, add `JANITOR_DRIVER=driver-name` to your .env file. 
+
+*NOTE: It does not support a default driver and throws an `InvalidArgumentException` if omitted.*
 
 ## Testing
 ```bash
