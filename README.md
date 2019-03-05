@@ -40,6 +40,8 @@ It will by default add routes for the following:
 - login by username and password (/login)
 - refresh current user access token (/login/refresh)
 - log the user out (/logout)
+- send password reset email (/password/email)
+- reset password (/password/reset)
 
 Finally, add `JANITOR_DRIVER=driver-name` to your .env file. 
 
