@@ -27,7 +27,7 @@ class JWTProxy extends AbstractProxy
 
         $token = Auth::attempt($credentials);
 
-        if (is_null($user) || is_null($token)) {
+        if (is_null($user) || ! $token) {
             event(new Failed($this->getGuard(), $user, $credentials));
             throw InvalidCredentialsException::forUsername($username);
         }
