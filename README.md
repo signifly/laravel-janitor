@@ -43,6 +43,18 @@ It will by default add routes for the following:
 - send password reset email (/password/email)
 - reset password (/password/reset)
 
+You can also define a specific set of routes by passing a Closure:
+
+```php
+Janitor::routes(function ($router) {
+    // Login and logout routes
+    $router->forAuthentication();
+
+    // Password reset routes
+    $router->forPasswordReset();
+});
+```
+
 Finally, add `JANITOR_DRIVER=driver-name` to your .env file. 
 
 *NOTE: It does not support a default driver and throws an `InvalidArgumentException` if omitted.*
