@@ -18,7 +18,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $usernameField = config('janitor.username_field');
+        $usernameField = $this->proxy->getUsernameField();
 
         $request->validate([
             $usernameField => 'required',
