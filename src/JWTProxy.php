@@ -25,32 +25,24 @@ class JWTProxy extends AbstractProxy
             ->where($this->getUsernameField(), $username)
             ->first();
 
-        if (is_null($user)) {
+        $token = Auth::attempt($credentials);
+
+        if (is_null($user) || is_null($token)) {
             event(new Failed($this->getGuard(), $user, $credentials));
             throw InvalidCredentialsException::forUsername($username);
         }
 
-        $token = Auth::login($user);
-
         event(new Authenticated($this->getGuard(), $user));
         event(new Login($this->getGuard(), $user, false));
 
-        return [
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60,
-        ];
+        return $this->prepareToken($token);
     }
 
     public function attemptRefresh($refreshToken = null)
     {
         $token = Auth::refresh();
 
-        return [
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60,
-        ];
+        return $this->prepareToken($token);
     }
 
     public function attemptLogout()
@@ -60,5 +52,14 @@ class JWTProxy extends AbstractProxy
         Auth::logout();
 
         event(new Logout($this->getGuard(), $user));
+    }
+
+    protected function prepareToken($token): array
+    {
+        return [
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => Auth::factory()->getTTL() * 60,
+        ];
     }
 }
