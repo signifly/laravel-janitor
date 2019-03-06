@@ -21,7 +21,7 @@ class AuthController extends Controller
         $usernameField = config('janitor.username_field');
 
         $request->validate([
-            $username_field => 'required',
+            $usernameField => 'required',
             'password' => 'required',
         ]);
 
