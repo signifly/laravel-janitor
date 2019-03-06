@@ -21,7 +21,6 @@ abstract class AbstractProxy implements Proxy
     public function __construct(array $config)
     {
         $this->config = $config;
-        $this->setUsernameField($config['username_field']);
     }
 
     /**
@@ -53,7 +52,7 @@ abstract class AbstractProxy implements Proxy
      */
     public function getUsernameField(): string
     {
-        return $this->usernameField;
+        return $this->usernameField ?? config('janitor.username_field');
     }
 
     /**
