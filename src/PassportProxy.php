@@ -2,12 +2,14 @@
 
 namespace Signifly\Janitor;
 
+use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client as HttpClient;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;
 use Signifly\Janitor\Exceptions\InvalidCredentialsException;
@@ -57,7 +59,7 @@ class PassportProxy extends AbstractProxy
 
         $accessToken = $this->getAccessToken();
 
-        $refreshToken = DB::table('oauth_refresh_tokens')
+        DB::table('oauth_refresh_tokens')
             ->where('access_token_id', $accessToken->id)
             ->update([
                 'revoked' => true,
@@ -86,7 +88,7 @@ class PassportProxy extends AbstractProxy
 
         $data = json_decode((string) $response->getBody(), true);
 
-        return array_only($data, [
+        return Arr::only($data, [
             'access_token',
             'expires_in',
             'refresh_token',
