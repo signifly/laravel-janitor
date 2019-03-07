@@ -11,8 +11,6 @@ The `signifly/laravel-janitor` package allows you to easily add a login proxy to
 ## Documentation
 To get started you have to either install `laravel/passport` or `tymon/jwt-auth`. Please refer to their documentation for how to configure those packages.
 
-*NOTE: The current support for `tymon/jwt-auth` is limited to `1.0.*@beta`.*
-
 ## Installation
 
 You can install the package via composer:
