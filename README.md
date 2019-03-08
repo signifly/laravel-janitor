@@ -59,9 +59,11 @@ Finally, add `JANITOR_DRIVER=driver-name` to your .env file.
 
 ### Resetting passwords
 
-In order to use the reset password implementation in an API, you have to add a custom reset password notification.
+In order to use the reset password implementation in an API, you have to add a custom reset password notification to your user model.
 
 ```php
+// App\User.php
+
 /**
  * Send the password reset notification.
  *
