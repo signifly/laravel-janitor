@@ -57,6 +57,25 @@ Finally, add `JANITOR_DRIVER=driver-name` to your .env file.
 
 *NOTE: It does not support a default driver and throws an `InvalidArgumentException` if omitted.*
 
+### Resetting passwords
+
+In order to use the reset password implementation in an API, you have to add a custom reset password notification.
+
+```php
+/**
+ * Send the password reset notification.
+ *
+ * @param  string  $token
+ * @return void
+ */
+public function sendPasswordResetNotification($token)
+{
+    $this->notify(new ResetPasswordNotification($token));
+}
+```
+
+The notification should format a correct link to your client app's reset password url.
+
 ## Testing
 ```bash
 $ composer test
