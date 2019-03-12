@@ -3,6 +3,7 @@
 namespace Signifly\Janitor\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
+use Signifly\Janitor\JanitorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -23,6 +24,11 @@ abstract class TestCase extends Orchestra
             'prefix' => '',
         ]);
         $app['config']->set('app.key', 'base64:9e0yNQB60wgU/cqbP09uphPo3aglW3iQJy+u4JQgnQE=');
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [JanitorServiceProvider::class];
     }
 
     protected function setUpDatabase()
