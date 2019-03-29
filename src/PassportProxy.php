@@ -17,6 +17,13 @@ use Signifly\Janitor\Exceptions\InvalidClientCredentialsException;
 
 class PassportProxy extends AbstractProxy
 {
+    /**
+     * Attempt to log the user in by username and password.
+     *
+     * @param  string $username
+     * @param  mixed $password
+     * @return array
+     */
     public function attemptLogin($username, $password): array
     {
         $credentials = [
@@ -45,6 +52,12 @@ class PassportProxy extends AbstractProxy
         return $response;
     }
 
+    /**
+     * Attempt refreshing the token.
+     *
+     * @param  string|null $refreshToken
+     * @return array
+     */
     public function attemptRefresh($refreshToken = null): array
     {
         return $this->proxy('refresh_token', [
@@ -52,6 +65,11 @@ class PassportProxy extends AbstractProxy
         ]);
     }
 
+    /**
+     * Attempt to log the user out.
+     *
+     * @return void
+     */
     public function attemptLogout(): void
     {
         $user = Auth::user();
@@ -69,7 +87,15 @@ class PassportProxy extends AbstractProxy
         event(new Logout($this->getGuard(), $user));
     }
 
-    public function proxy($grantType, array $data = [], $user = null)
+    /**
+     * Proxy request to passport.
+     *
+     * @param  string $grantType
+     * @param  array  $data
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|null $user
+     * @return array
+     */
+    public function proxy($grantType, array $data = [], $user = null): array
     {
         $data = array_merge($data, $this->getClientCredentials(), [
             'grant_type' => $grantType,
