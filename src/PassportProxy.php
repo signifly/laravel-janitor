@@ -4,6 +4,7 @@ namespace Signifly\Janitor;
 
 use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
+use Laravel\Passport\Passport;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Logout;
@@ -138,7 +139,7 @@ class PassportProxy extends AbstractProxy
      */
     protected function getClientCredentials(): array
     {
-        $client = DB::table('oauth_clients')
+        $client = Passport::client()
             ->where('password_client', true)
             ->where('revoked', false)
             ->first();
