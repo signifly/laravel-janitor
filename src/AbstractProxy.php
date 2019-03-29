@@ -4,6 +4,7 @@ namespace Signifly\Janitor;
 
 use Illuminate\Support\Facades\Auth;
 use Signifly\Janitor\Contracts\Proxy;
+use Illuminate\Contracts\Auth\UserProvider;
 
 abstract class AbstractProxy implements Proxy
 {
@@ -36,13 +37,11 @@ abstract class AbstractProxy implements Proxy
     /**
      * Get the user instance.
      *
-     * @return \Illuminate\Contracts\Auth\Authenticatable
+     * @return \Illuminate\Contracts\Auth\UserProvider
      */
-    protected function getUserInstance()
+    protected function getUserProvider(): UserProvider
     {
-        $userClass = config('auth.providers.users.model');
-
-        return new $userClass;
+        return Auth::getProvider();
     }
 
     /**

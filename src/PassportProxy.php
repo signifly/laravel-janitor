@@ -17,7 +17,7 @@ use Signifly\Janitor\Exceptions\InvalidClientCredentialsException;
 
 class PassportProxy extends AbstractProxy
 {
-    public function attemptLogin($username, $password)
+    public function attemptLogin($username, $password): array
     {
         $credentials = [
             $this->getUsernameField() => $username,
@@ -26,9 +26,8 @@ class PassportProxy extends AbstractProxy
 
         event(new Attempting($this->getGuard(), $credentials, false));
 
-        $user = $this->getUserInstance()
-            ->where($this->getUsernameField(), $username)
-            ->first();
+        $user = $this->getUserProvider()
+            ->retrieveByCredentials($credentials);
 
         if (is_null($user)) {
             event(new Failed($this->getGuard(), $user, $credentials));
@@ -46,14 +45,14 @@ class PassportProxy extends AbstractProxy
         return $response;
     }
 
-    public function attemptRefresh($refreshToken = null)
+    public function attemptRefresh($refreshToken = null): array
     {
         return $this->proxy('refresh_token', [
             'refresh_token' => $refreshToken,
         ]);
     }
 
-    public function attemptLogout()
+    public function attemptLogout(): void
     {
         $user = Auth::user();
 
@@ -111,7 +110,7 @@ class PassportProxy extends AbstractProxy
      *
      * @return array
      */
-    protected function getClientCredentials()
+    protected function getClientCredentials(): array
     {
         $client = DB::table('oauth_clients')
             ->where('password_client', true)

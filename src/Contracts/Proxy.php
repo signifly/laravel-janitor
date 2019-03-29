@@ -4,9 +4,9 @@ namespace Signifly\Janitor\Contracts;
 
 interface Proxy
 {
-    public function attemptLogin($username, $password);
+    public function attemptLogin($username, $password): array;
 
-    public function attemptRefresh($refreshToken = null);
+    public function attemptRefresh($refreshToken = null): array;
 
-    public function attemptLogout();
+    public function attemptLogout(): void;
 }

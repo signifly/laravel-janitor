@@ -12,7 +12,7 @@ use Signifly\Janitor\Exceptions\InvalidCredentialsException;
 
 class JWTProxy extends AbstractProxy
 {
-    public function attemptLogin($username, $password)
+    public function attemptLogin($username, $password): array
     {
         $credentials = [
             $this->getUsernameField() => $username,
@@ -21,9 +21,8 @@ class JWTProxy extends AbstractProxy
 
         event(new Attempting($this->getGuard(), $credentials, false));
 
-        $user = $this->getUserInstance()
-            ->where($this->getUsernameField(), $username)
-            ->first();
+        $user = $this->getUserProvider()
+            ->retrieveByCredentials($credentials);
 
         $token = Auth::attempt($credentials);
 
@@ -38,14 +37,14 @@ class JWTProxy extends AbstractProxy
         return $this->prepareToken($token);
     }
 
-    public function attemptRefresh($refreshToken = null)
+    public function attemptRefresh($refreshToken = null): array
     {
         $token = Auth::refresh();
 
         return $this->prepareToken($token);
     }
 
-    public function attemptLogout()
+    public function attemptLogout(): void
     {
         $user = Auth::user();
 
