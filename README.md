@@ -57,6 +57,8 @@ Janitor::routes(function ($router) {
 
 Finally, add `JANITOR_DRIVER=driver-name` to your .env file.
 
+The supported drivers are: `passport` and `jwt`.
+
 *NOTE: It does not support a default driver and throws an `InvalidArgumentException` if omitted.*
 
 ### Resetting passwords
