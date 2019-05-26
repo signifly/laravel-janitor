@@ -18,7 +18,7 @@ To get started you have to either install `laravel/passport` or `tymon/jwt-auth`
 You can install the package via composer:
 
 ```bash
-$ composer require signifly/laravel-janitor
+composer require signifly/laravel-janitor
 ```
 
 The package will automatically register itself.
@@ -27,7 +27,7 @@ The package will automatically register itself.
 You can optionally publish the config file with:
 
 ```bash
-$ php artisan vendor:publish --tag="janitor-config"
+php artisan vendor:publish --tag="janitor-config"
 ```
 
 After pulling in the package and (optionally) publishing the config, then add the routes to your `routes/api.php` file:
@@ -55,7 +55,7 @@ Janitor::routes(function ($router) {
 });
 ```
 
-Finally, add `JANITOR_DRIVER=driver-name` to your .env file. 
+Finally, add `JANITOR_DRIVER=driver-name` to your .env file.
 
 *NOTE: It does not support a default driver and throws an `InvalidArgumentException` if omitted.*
 
@@ -82,7 +82,7 @@ The notification should format a correct link to your client app's reset passwor
 
 ## Testing
 ```bash
-$ composer test
+composer test
 ```
 
 ## Security
