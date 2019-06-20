@@ -4,16 +4,10 @@ namespace Signifly\Janitor;
 
 use Illuminate\Support\ServiceProvider;
 use Signifly\Janitor\Contracts\Factory;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
-class JanitorServiceProvider extends ServiceProvider
+class JanitorServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     public function boot()
     {
         if ($this->app->runningInConsole()) {
