@@ -11,19 +11,19 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",
-        "illuminate/auth": "~5.5.43|~5.6.0|~5.7.0|~5.8.0",
-        "illuminate/contracts": "~5.5.43|~5.6.0|~5.7.0|~5.8.0",
-        "illuminate/database": "~5.5.43|~5.6.0|~5.7.0|~5.8.0",
-        "illuminate/http": "~5.5.43|~5.6.0|~5.7.0|~5.8.0",
-        "illuminate/routing": "~5.5.43|~5.6.0|~5.7.0|~5.8.0",
-        "illuminate/support": "~5.5.43|~5.6.0|~5.7.0|~5.8.0"
+        "illuminate/auth": "~5.8.0",
+        "illuminate/contracts": "~5.8.0",
+        "illuminate/database": "~5.8.0",
+        "illuminate/http": "~5.8.0",
+        "illuminate/routing": "~5.8.0",
+        "illuminate/support": "~5.8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
+        "orchestra/testbench": "~3.8.0",
         "laravel/passport": "^7.0",
-        "phpunit/phpunit": "^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^7.0|^8.0",
         "tymon/jwt-auth": "1.0.0-rc.4"
     },
     "suggest": {
