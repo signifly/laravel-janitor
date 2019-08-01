@@ -8,6 +8,10 @@
 
 The `signifly/laravel-janitor` package allows you to easily add a login proxy to your Laravel API.
 
+You can find two articles that walk you through getting started using:
+- [Passport Proxy](https://medium.com/@codingcave/api-authentication-with-laravel-janitor-part-1-laravel-passport-proxy-d1d1e05d687e)
+- [JWT Proxy](https://medium.com/@codingcave/api-authentication-with-laravel-janitor-part-2-laravel-jwt-proxy-d303afe8eba9)
+
 ## Documentation
 To get started you have to either install `laravel/passport` or `tymon/jwt-auth`. Please refer to their documentation for how to configure those packages.
 
