@@ -37,6 +37,7 @@ return [
 
         'passport' => [
             'oauth_token_url' => env('JANITOR_OAUTH_TOKEN_URL', 'http://localhost/oauth/token'),
+            'client_model' => \Laravel\Passport\Passport::class
         ],
 
     ],
