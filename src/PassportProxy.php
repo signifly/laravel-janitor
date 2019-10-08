@@ -4,6 +4,7 @@ namespace Signifly\Janitor;
 
 use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
+use Laravel\Passport\Passport;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Logout;
@@ -12,6 +13,7 @@ use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Signifly\Janitor\Exceptions\InvalidCredentialsException;
 use Signifly\Janitor\Exceptions\InvalidClientCredentialsException;
 
@@ -82,7 +84,9 @@ class PassportProxy extends AbstractProxy
                 'revoked' => true,
             ]);
 
-        $accessToken->revoke();
+        if (! $accessToken->revoke()) {
+            throw new HttpException(409, 'Could not revoke access token.');
+        }
 
         event(new Logout($this->getGuard(), $user));
     }
@@ -138,10 +142,9 @@ class PassportProxy extends AbstractProxy
      */
     protected function getClientCredentials(): array
     {
-        $model = new $this->config['client_model']();
+        $clientModel = $this->config['client_model'] ?? Passport::clientModel();
 
-        $client = $model
-            ->where('password_client', true)
+        $client = $clientModel::where('password_client', true)
             ->where('revoked', false)
             ->first();
 
