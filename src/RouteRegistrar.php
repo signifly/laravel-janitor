@@ -18,12 +18,22 @@ class RouteRegistrar
         $this->router = $router;
     }
 
+    /**
+     * Apply all routes to the router.
+     *
+     * @return void
+     */
     public function all()
     {
         $this->forAuthentication();
         $this->forPasswordReset();
     }
 
+    /**
+     * Apply authentication routes to the router.
+     *
+     * @return void
+     */
     public function forAuthentication()
     {
         $this->router->post('login', 'AuthController@login')
@@ -38,6 +48,11 @@ class RouteRegistrar
         });
     }
 
+    /**
+     * Apply password reset routes to the router.
+     *
+     * @return void
+     */
     public function forPasswordReset()
     {
         $this->router->post('password/email', 'ResetPasswordController@sendResetLinkEmail')
