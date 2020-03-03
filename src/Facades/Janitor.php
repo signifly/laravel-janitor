@@ -2,10 +2,10 @@
 
 namespace Signifly\Janitor\Facades;
 
-use Signifly\Janitor\RouteRegistrar;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Route;
 use Signifly\Janitor\Contracts\Factory;
+use Signifly\Janitor\RouteRegistrar;
 
 /**
  * @see \Signifly\Janitor\JanitorManager

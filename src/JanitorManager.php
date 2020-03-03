@@ -2,8 +2,8 @@
 
 namespace Signifly\Janitor;
 
-use InvalidArgumentException;
 use Illuminate\Support\Manager;
+use InvalidArgumentException;
 use Signifly\Janitor\Contracts\Factory;
 
 class JanitorManager extends Manager implements Factory

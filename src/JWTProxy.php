@@ -2,12 +2,12 @@
 
 namespace Signifly\Janitor;
 
-use Illuminate\Auth\Events\Login;
-use Illuminate\Auth\Events\Failed;
-use Illuminate\Auth\Events\Logout;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Auth;
 use Signifly\Janitor\Exceptions\InvalidCredentialsException;
 
 class JWTProxy extends AbstractProxy

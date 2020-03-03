@@ -3,8 +3,8 @@
 namespace Signifly\Janitor\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
-use Signifly\Janitor\JanitorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Signifly\Janitor\JanitorServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

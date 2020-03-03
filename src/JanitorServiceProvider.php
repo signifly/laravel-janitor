@@ -2,9 +2,9 @@
 
 namespace Signifly\Janitor;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Signifly\Janitor\Contracts\Factory;
-use Illuminate\Contracts\Support\DeferrableProvider;
 
 class JanitorServiceProvider extends ServiceProvider implements DeferrableProvider
 {

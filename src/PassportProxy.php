@@ -2,20 +2,20 @@
 
 namespace Signifly\Janitor;
 
-use Illuminate\Support\Arr;
-use Illuminate\Http\Response;
-use Laravel\Passport\Passport;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Auth\Events\Failed;
-use Illuminate\Auth\Events\Logout;
-use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client as HttpClient;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Signifly\Janitor\Exceptions\InvalidCredentialsException;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Laravel\Passport\Passport;
 use Signifly\Janitor\Exceptions\InvalidClientCredentialsException;
+use Signifly\Janitor\Exceptions\InvalidCredentialsException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PassportProxy extends AbstractProxy
 {

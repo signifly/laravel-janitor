@@ -2,9 +2,9 @@
 
 namespace Signifly\Janitor;
 
+use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Support\Facades\Auth;
 use Signifly\Janitor\Contracts\Proxy;
-use Illuminate\Contracts\Auth\UserProvider;
 
 abstract class AbstractProxy implements Proxy
 {

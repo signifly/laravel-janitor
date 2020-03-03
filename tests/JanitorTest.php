@@ -2,10 +2,10 @@
 
 namespace Signifly\Janitor\Tests;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Signifly\Janitor\Facades\Janitor;
 use Signifly\Janitor\JWTProxy;
 use Signifly\Janitor\PassportProxy;
-use Signifly\Janitor\Facades\Janitor;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class JanitorTest extends TestCase
 {
