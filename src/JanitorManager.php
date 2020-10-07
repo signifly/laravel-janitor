@@ -15,7 +15,7 @@ class JanitorManager extends Manager implements Factory
      */
     protected function createJwtDriver()
     {
-        $config = $this->app['config']['janitor.drivers.jwt'];
+        $config = $this->container['config']['janitor.drivers.jwt'];
 
         return new JWTProxy($config);
     }
@@ -27,7 +27,7 @@ class JanitorManager extends Manager implements Factory
      */
     protected function createPassportDriver()
     {
-        $config = $this->app['config']['janitor.drivers.passport'];
+        $config = $this->container['config']['janitor.drivers.passport'];
 
         return new PassportProxy($config);
     }
