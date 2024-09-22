@@ -1,3 +1,6 @@
+# This project is no longer actively maintained.
+
+
 # Easily add login proxy to your Laravel API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/laravel-janitor.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-janitor)
